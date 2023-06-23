@@ -72,21 +72,22 @@
     - Dica **"@JsonProperty"**
 
 `1.` Adicione um atributo de "Prioridade" à entidade "Task"
+  Prioridade (enum, obrigatório): alta, média, baixa.
 
-Prioridade (enum, obrigatório): alta, média, baixa.
 `2.` Crie um endpoint adicional para obter tarefas por prioridade
 
-Método: GET
-Endpoint: /tasks/priority/{priorityLevel}
-Parâmetros de caminho: priorityLevel (string): o nível de prioridade das tarefas a serem obtidas (alto, médio, baixo).
-Resposta: lista de tarefas no formato JSON que correspondem ao nível de prioridade especificado.
+  Método: GET
+  Endpoint: /tasks/priority/{priorityLevel}
+  Parâmetros de caminho: priorityLevel (string): o nível de prioridade das tarefas a serem obtidas (alto, médio, baixo).
+  Resposta: lista de tarefas no formato JSON que correspondem ao nível de prioridade especificado.
+
 `3.` Crie um endpoint adicional para alterar a prioridade de uma tarefa:
 
-Método: PATCH
-Endpoint: /tasks/{taskId}/priority
-Parâmetros de caminho: taskId (UUID): ID da tarefa cuja prioridade será alterada.
-Corpo da requisição: objeto JSON contendo o novo nível de prioridade.
-Resposta: objeto JSON da tarefa atualizada.
+  Método: PATCH
+  Endpoint: /tasks/{taskId}/priority
+  Parâmetros de caminho: taskId (UUID): ID da tarefa cuja prioridade será alterada.
+  Corpo da requisição: objeto JSON contendo o novo nível de prioridade.
+  Resposta: objeto JSON da tarefa atualizada.
 
 Implemente um job para alertar sobre tasks de alta prioridade não concluídas com mais de 2 dias de criação.
 
