@@ -5,6 +5,7 @@ import br.com.task.resource.response.TaskResponse;
 import br.com.task.service.TaskService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -32,7 +33,7 @@ public class TaskResource {
     }
 
     @PostMapping
-    public ResponseEntity<TaskResponse> createTask(@RequestBody TaskRequest request) {
+    public ResponseEntity<TaskResponse> createTask(@RequestBody @Validated TaskRequest request) {
         return ResponseEntity.status(HttpStatus.CREATED).body(taskService.createTask(request));
     }
 
@@ -43,7 +44,7 @@ public class TaskResource {
     }
 
     @PutMapping("{id}")
-    public TaskResponse updateTask(@PathVariable String id, @RequestBody TaskRequest  request) {
+    public TaskResponse updateTask(@PathVariable String id, @RequestBody @Validated TaskRequest  request) {
         return taskService.updateTask(id, request);
     }
 }

@@ -24,6 +24,7 @@ public class TaskMapper {
     public static TaskResponse of(Task task) {
         return new TaskResponse.Builder()
                 .id(task.getId())
+                .title(task.getTitle())
                 .description(task.getDescription())
                 .createdDate(task.getCreatedDate())
                 .editedDate(null)
