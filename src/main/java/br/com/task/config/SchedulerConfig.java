@@ -15,8 +15,7 @@ public class SchedulerConfig {
         this.schedulerService = schedulerService;
     }
 
-//    @Scheduled(cron = "0 0 12 * * ?")
-    @Scheduled(fixedDelay = 5000)
+    @Scheduled(cron = "0 0 12 * * ?")
     public void runDeleteTasksEveryMiddleDay() {
         schedulerService.deleteOldTasksCompleted();
     }
