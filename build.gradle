@@ -2,6 +2,7 @@ plugins {
     id 'java'
     id 'org.springframework.boot' version '2.7.12'
     id 'io.spring.dependency-management' version '1.0.15.RELEASE'
+    id "org.springdoc.openapi-gradle-plugin" version "1.6.0"
 }
 
 group = 'br.com.taskmanager'
@@ -17,6 +18,7 @@ configurations {
     }
 }
 
+
 repositories {
     mavenCentral()
 }
@@ -28,6 +30,11 @@ dependencies {
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+    implementation group: 'org.springdoc', name: 'springdoc-openapi-ui', version: '1.5.12'
+
+
+
 }
 
 tasks.named('test') {
