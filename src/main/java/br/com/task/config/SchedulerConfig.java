@@ -5,6 +5,8 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
 
+import java.io.IOException;
+
 @Configuration
 @EnableScheduling
 public class SchedulerConfig {
@@ -18,5 +20,10 @@ public class SchedulerConfig {
     @Scheduled(cron = "0 0 12 * * ?")
     public void runDeleteTasksEveryMiddleDay() {
         schedulerService.deleteOldTasksCompleted();
+    }
+
+    @Scheduled(cron = "0 0 12 * * ?")
+    public void runCleanLogsEvery() throws IOException {
+        schedulerService.cleanLogs();
     }
 }

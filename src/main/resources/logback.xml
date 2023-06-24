@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <!-- Definindo o appender FILE, que escreve os logs em um arquivo específico -->
+    <appender name="FILE" class="ch.qos.logback.core.FileAppender">
+        <!-- Caminho do arquivo de log -->
+        <file>/home/john/Documents/Repositories/task-manager-api/logs.log</file>
+        <!-- Formato do log -->
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+
+    </appender>
+
+    <!-- Definindo o appender NULL, que descarta todos os logs -->
+    <appender name="NULL" class="ch.qos.logback.core.helpers.NOPAppender" />
+
+    <!-- Define o nível de log e o appender para a classe "TaskService" -->
+    <logger name="br.com.task.service.TaskService" level="info" additivity="false">
+        <appender-ref ref="FILE" />
+    </logger>
+
+    <logger name="br.com.task.service.SchedulerService" level="error" additivity="false">
+        <appender-ref ref="FILE" />
+    </logger>
+
+    <!-- Para todas as outras classes, descarte os logs -->
+    <root level="info">
+        <appender-ref ref="NULL" />
+    </root>
+
+</configuration>
